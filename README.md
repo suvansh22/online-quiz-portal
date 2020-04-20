@@ -4,6 +4,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+## how to run this project
+  Create `dev.js` in Backend\routes\config\dev.js with content of
+  ```javascript
+  module.exports={DB_URI:'your mongo connection string`} // Get it here : http://www.mongodb.com/cloud/atlas
+  ```
+  
+
 ### `npm start`
 Runs the server.<br />
 Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
