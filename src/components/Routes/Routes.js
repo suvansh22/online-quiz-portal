@@ -25,7 +25,7 @@ export default function WebsiteRouter(props){
         <div>
             <Router>
             <LoginNavbar history={props.history} />
-            <div style={{width:"100%",height:"100%",display:"flex",justifyContent:"space-around",padding:"2%"}}>
+            <div style={{width:"100%",height:"100%",display:"flex",justifyContent:"space-around",paddingTop:"2%"}}>
                 <Route exact path="/createQuiz" component={Quizcreateform} history={props.history}/>
                 <Route exact path="/" component={LoginForm}  history={props.history}/>
                 <Route exact path="/quizpage/:id/:uid" component={QuizPage} history={props.history}/>
