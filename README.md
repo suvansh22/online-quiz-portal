@@ -10,6 +10,7 @@ In the project directory, you can run:
   module.exports={DB_URI:'your mongo connection string`} // Get it here : http://www.mongodb.com/cloud/atlas
   ```
   
+ ### Then in base folder do the following
 
 ### `npm start`
 Runs the server.<br />
