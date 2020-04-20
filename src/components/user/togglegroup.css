@@ -1,0 +1,11 @@
+.Mui-selected{
+    background-color: red !important;
+}
+
+.MuiToggleButton-root{
+    background-color:orange !important;
+    width:auto;
+}
+.MuiToggleButton-root:hover{
+    border:2px solid black
+    }
