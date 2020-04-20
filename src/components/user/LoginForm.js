@@ -21,8 +21,15 @@ function LoginForm(){
             }
         })
         .catch(error=>{
-            alert(error.response.data.message)
-            setLoading(false);})
+            setLoading(false);
+            if(error.response.data.message)
+            {
+                alert(error.response.data.message)
+            }
+            else
+            {
+                alert(error)
+            }})
     }
 
     
