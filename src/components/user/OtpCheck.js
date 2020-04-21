@@ -8,7 +8,7 @@ import FormError from './FormError'
 import Button from '@material-ui/core/Button'
 import {checkOtp,inputUserInfo} from '../Connection'
 import {withRouter} from 'react-router-dom'
-
+import {checkUserValidity} from '../Connection'
 
 const useStyles = makeStyles(theme=>({
     roots:{
@@ -25,7 +25,39 @@ const useStyles = makeStyles(theme=>({
 function OtpCheck(props){
     const classes=useStyles();
     const {register,errors,handleSubmit}=useForm();
-    const {userinfo,getOtp} = props
+    const {userinfo} = props
+    const [repeat,setRepeat] = React.useState(false)
+    const [loading,setLoading] = React.useState(false)
+
+    
+    const otpResend=async()=>{
+        console.log("A:",props.userinfo)
+        await setLoading(true)
+        await setRepeat(true)
+        checkUserValidity(props.userinfo.quizid,props.userinfo.email).then(async(res)=>{
+            if(res.data.RESULT)
+            {
+                await setLoading(false)
+            }
+            else
+            {
+                alert("Please try again")
+                await setRepeat(false)
+            }
+        })
+        .catch(async(error)=>{
+            setLoading(false);
+            if(error.response.data.message)
+            {
+                alert(error.response.data.message)
+                await setRepeat(false)
+            }
+            else
+            {
+                alert(error)
+                await setRepeat(false)
+            }})
+    }
 
     
     const handlecheckOtp=async(registerData)=>{
@@ -74,10 +106,10 @@ function OtpCheck(props){
                     </FormError>
                 </Grid>
                 <Grid item xs={6}>
-                <Button type="submit" name="otp" color="primary" variant="contained">Start Test</Button>
+                <Button type="submit" disabled={loading?true:false} name="otp" color="primary" variant="contained">Start Test</Button>
                 </Grid>
                 <Grid item xs={6}>
-                <Button  name="otpResend" onClick={getOtp} color="primary" variant="contained">OtpResend</Button>
+                <Button  name="otpResend" disabled={repeat?true:false} onClick={()=>otpResend()} color="primary" variant="contained">OTP RESEND</Button>
                 </Grid>
             </Grid>
             </form>

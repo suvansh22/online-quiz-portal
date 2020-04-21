@@ -3,6 +3,7 @@ const otpGenerator = require('otp-generator')
 const nodemailer=require("nodemailer");
 const otpschema = require('../schema/otpSchema')
 const quizinfoschema = require('../schema/quizInfoSchema')
+const {mailerid,mailerpassword} = require('../config')
 
 exports.createQuizData=(req,res)=>{
     const data=req.body;
@@ -44,8 +45,8 @@ exports.CheckUserAvailability=(req,res)=>{
                     service:'gmail',
                     secure:false,
                     auth:{
-                        user:'thedailyofferjuet@gmail.com',
-                        pass:'suvansh@12345'
+                        user: mailerid,
+                        pass: mailerpassword
                     }
                 });
                 var msg='Your otp is: '+otp+' for quiz with id: '+id

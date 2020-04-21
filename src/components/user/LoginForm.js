@@ -13,7 +13,7 @@ function LoginForm(){
             if(res.data.RESULT)
             {
                 await setLoading(false)
-                setView(<OtpCheck getOtp={getOtp} userinfo={registerData}/>)   
+                setView(<OtpCheck userinfo={registerData}/>)   
             }
             else
             {
