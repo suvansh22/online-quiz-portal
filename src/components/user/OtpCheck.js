@@ -31,7 +31,6 @@ function OtpCheck(props){
 
     
     const otpResend=async()=>{
-        console.log("A:",props.userinfo)
         await setLoading(true)
         await setRepeat(true)
         checkUserValidity(props.userinfo.quizid,props.userinfo.email).then(async(res)=>{
@@ -71,7 +70,6 @@ function OtpCheck(props){
                     await sessionStorage.setItem('id',res.data.id)
                     await sessionStorage.setItem('quizid',userinfo.quizid)
                     await sessionStorage.setItem('name',userinfo.name)
-                    console.log("A:",res.data)
                     await sessionStorage.setItem('quizname',res.data.title)
                     props.history.replace({pathname:`/quizpage/${userinfo.quizid}/${res.data.id}`})
                 })

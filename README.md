@@ -7,7 +7,7 @@ In the project directory, you can run:
 ## how to run this project
   Create `dev.js` in Backend\routes\config\dev.js with content of
   ```javascript
-  module.exports={DB_URI:'your mongo connection string`} // Get it here : http://www.mongodb.com/cloud/atlas
+  module.exports={DB_URI:'your mongo connection string'} // Get it here : http://www.mongodb.com/cloud/atlas
   ```
   
  ### Then in base folder do the following
