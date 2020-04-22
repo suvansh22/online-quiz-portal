@@ -41,6 +41,7 @@ app.use('/database',quizRouter);
 
 if(process.env.NODE_ENV === 'production')
 {
+  console.log("ASD")
 const buildPath = path.join(__dirname,'..','build');
 app.use(express.static(buildPath))
 app.get('*',(req,res)=>{

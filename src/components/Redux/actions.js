@@ -1,7 +1,20 @@
 import {field1} from './fieldData'
+import{quizData} from './quizData'
+
+export const saveQuiz=(data)=>{
+    return{
+        type:"save_quiz",
+        data
+    }
+}
+
+export const getQuiz=()=>{
+    return{
+        type:"get_quiz",
+    }
+}
 
 export const createPart1=(fields,idx)=>{
-    console.log("A:",fields)
     return{
     type:"create_Part_1",
     fields,

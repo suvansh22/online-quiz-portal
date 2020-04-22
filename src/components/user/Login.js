@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Login(props) {
   const classes = useStyles();
-  const {data}=props
   function handleClick(){
     props.history.push({pathname:'/createQuiz'})
   }

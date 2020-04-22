@@ -12,6 +12,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Slider from '@material-ui/core/Slider';
 import ReceiptIcon from '@material-ui/icons/Receipt';
 import {createQuiz} from '../Connection'
+import {connect} from 'react-redux'
+import {saveQuiz,getQuiz} from '../Redux/actions'
 
 const useStyles = makeStyles(theme=>({
     roots:{
@@ -47,12 +49,13 @@ function valuetext(value) {
     return `${value}min`;
   }
 
-export default function Quizcreatform(props){
+function Quizcreateform(props){
     const classes = useStyles();
     const[parts,setParts]=React.useState(1);
     const[valuechange,setvaluechange]=React.useState({timebound:"No",Result:"In the end"})
     var {handleSubmit,register}=useForm()
     const[timelimit,setTimelimit]=React.useState(10);
+    const {dispatch} = props
 
     const handlepartButton=(value)=>{
         setParts(value);
@@ -62,6 +65,7 @@ export default function Quizcreatform(props){
         setTimelimit(newValue)
     }
     async function formSubmit(registerData){
+        // dispatch(saveQuiz(registerData))
         createQuiz(registerData).then(res=>{
             props.history.replace({pathname:`/QuestionAnswerForm/${res.data["id"]}`})
         })
@@ -207,3 +211,11 @@ export default function Quizcreatform(props){
         </Paper>
     )
 }
+
+// const mapStateToProps= state=>{
+//     return{
+//         quizData:state.quiztempdata
+//     }
+// }
+
+export default Quizcreateform

@@ -1,0 +1,1 @@
+export const quizData = {quizname:"",noofParts:"",part1:"",part2:"",part3:"",timebound:false,timeLimit:0,Result:""};
