@@ -1,5 +1,5 @@
 import axios from 'axios'
- const api=axios.create({baseURL:"http://localhost:3001/database"})
+ const api=axios.create({baseURL:"http://localhost:3000/database"})
 
  export const getData = ()=>api.get(`/quizdata`)
  export const getDataById = id =>api.get(`/quizdata/${id}`)
