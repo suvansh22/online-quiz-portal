@@ -12,7 +12,7 @@ module.exports = function(app) {
     app.use(
         '/database',
         createProxyMiddleware({
-            target:url,
+            target:'http://localhost:3001',
             changeOrigin:true
         })
     )
