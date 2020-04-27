@@ -12,7 +12,7 @@ module.exports = function(app) {
     app.use(
         '/database',
         createProxyMiddleware({
-            target:url,
+            target:'https://onilne-quiz-portal.herokuapp.com',
             changeOrigin:true
         })
     )
