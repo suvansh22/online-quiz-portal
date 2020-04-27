@@ -6,13 +6,13 @@ if(process.env.NODE_ENV==="production")
 }
 else
 {
-    url='https://localhost:3001'
+    url='http://localhost:3001'
 }
 module.exports = function(app) {
     app.use(
         '/database',
         createProxyMiddleware({
-            target:url,
+            target:'https://onilne-quiz-portal.herokuapp.com',
             changeOrigin:true
         })
     )
